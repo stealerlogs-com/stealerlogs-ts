@@ -1,0 +1,6 @@
+node_modules
+dist
+.env
+TEST_API_KEY.txt
+*.tgz
+.DS_Store

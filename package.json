@@ -1,0 +1,52 @@
+{
+  "name": "stealerlogs",
+  "version": "0.1.0",
+  "description": "Official TypeScript library for the stealerlogs.com API",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "bun": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "bun test tests/client.test.ts",
+    "test:live": "bun test tests/live.test.ts",
+    "prepare": "tsc",
+    "prepublishOnly": "bun run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stealerlogs-com/stealerlogs-ts.git"
+  },
+  "homepage": "https://stealerlogs.com",
+  "bugs": {
+    "url": "https://github.com/stealerlogs-com/stealerlogs-ts/issues"
+  },
+  "keywords": [
+    "stealerlogs",
+    "api",
+    "osint",
+    "client",
+    "bun"
+  ],
+  "author": "stealerlogs",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "typescript": "5.9"
+  }
+}
