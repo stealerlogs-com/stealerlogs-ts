@@ -1,9 +1,5 @@
 # StealerLogs-ts
 
-<p>
-    <a href="https://www.npmjs.com/package/stealerlogs"><img src="https://img.shields.io/npm/v/stealerlogs.svg" alt="npm"></a>
-</p>
-
 Official typescript library for the [stealerlogs.com](https://stealerlogs.com) API
 
 - [StealerLogs-ts](#stealerlogs-ts)
@@ -15,17 +11,7 @@ Official typescript library for the [stealerlogs.com](https://stealerlogs.com) A
 ## Installation
 
 ```sh-session
-# Bun
 bun add github:stealerlogs-com/stealerlogs-ts
-
-# NPM
-npm i github:stealerlogs-com/stealerlogs-ts
-
-# PNPM
-pnpm i github:stealerlogs-com/stealerlogs-ts
-
-# Yarn
-yarn add github:stealerlogs-com/stealerlogs-ts
 ```
 
 ## Quick start
