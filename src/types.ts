@@ -117,3 +117,19 @@ export interface FilesResponse {
   hasPrev: boolean;
   items: File[];
 }
+
+export interface SearchLimits {
+  searchesPerDay: number;
+  searchesUsed: number;
+  searchesRemaining: number;
+  resetsAt: string;
+}
+
+export interface Account {
+  plan: string;
+  planName: string;
+  active: boolean;
+  expiresAt: string;
+  daysLeft: number;
+  limits: SearchLimits;
+}

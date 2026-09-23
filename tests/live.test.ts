@@ -47,6 +47,24 @@ test("log endpoints", async () => {
   }
 }, 60_000);
 
+test("me", async () => {
+  if (!apiKey) {
+    console.warn("skipping live test: STEALERLOGS_API_KEY is not set");
+    return;
+  }
+
+  const client = new Client(apiKey);
+  const account = await client.me();
+  expect(account.plan.length).toBeGreaterThan(0);
+  expect(account.planName.length).toBeGreaterThan(0);
+  expect(account.expiresAt.length).toBeGreaterThan(0);
+  expect(account.daysLeft).toBeGreaterThanOrEqual(0);
+  expect(account.limits.searchesPerDay).toBeGreaterThanOrEqual(0);
+  expect(account.limits.searchesUsed).toBeGreaterThanOrEqual(0);
+  expect(account.limits.searchesRemaining).toBeGreaterThanOrEqual(0);
+  expect(account.limits.resetsAt.length).toBeGreaterThan(0);
+}, 30_000);
+
 test("invalid key", async () => {
   if (!apiKey) {
     console.warn("skipping live test: STEALERLOGS_API_KEY is not set");

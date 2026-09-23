@@ -24,6 +24,43 @@ function startServer(handler: Handler) {
   return { server, client };
 }
 
+const accountBody = {
+  plan: "access",
+  planName: "Access",
+  active: true,
+  expiresAt: "2026-10-22T18:00:00.000Z",
+  daysLeft: 29,
+  limits: {
+    searchesPerDay: 1000,
+    searchesUsed: 12,
+    searchesRemaining: 988,
+    resetsAt: "2026-09-24T00:00:00.000Z",
+  },
+};
+
+describe("me", () => {
+  const { server, client } = startServer((req, url) => {
+    expect(url.pathname).toBe("/api/me");
+    expect(url.search).toBe("");
+    expect(req.headers.get("Authorization")).toBe("Bearer sl_test_key");
+    return Response.json(accountBody);
+  });
+  afterAll(() => server.stop(true));
+
+  test("returns the current account", async () => {
+    const account = await client.me();
+    expect(account.plan).toBe("access");
+    expect(account.planName).toBe("Access");
+    expect(account.active).toBe(true);
+    expect(account.expiresAt).toBe("2026-10-22T18:00:00.000Z");
+    expect(account.daysLeft).toBe(29);
+    expect(account.limits.searchesPerDay).toBe(1000);
+    expect(account.limits.searchesUsed).toBe(12);
+    expect(account.limits.searchesRemaining).toBe(988);
+    expect(account.limits.resetsAt).toBe("2026-09-24T00:00:00.000Z");
+  });
+});
+
 describe("search", () => {
   const { server, client } = startServer((req, url) => {
     expect(url.pathname).toBe("/api/search");

@@ -8,6 +8,7 @@ import {
 } from "./errors.js";
 import {
   DEFAULT_BASE_URL,
+  type Account,
   type ClientOptions,
   type CookieOptions,
   type CookiesResponse,
@@ -30,6 +31,10 @@ export class Client {
     this.apiKey = apiKey;
     this.baseUrl = (options.baseUrl ?? DEFAULT_BASE_URL).replace(/\/+$/, "");
     this.fetchFn = options.fetch ?? globalThis.fetch.bind(globalThis);
+  }
+
+  me(): Promise<Account> {
+    return this.get("/me", {});
   }
 
   search(options: SearchOptions): Promise<SearchResponse> {

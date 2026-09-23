@@ -12,6 +12,7 @@ export {
   DataType,
   DEFAULT_BASE_URL,
   SearchType,
+  type Account,
   type ClientOptions,
   type Cookie,
   type CookieOptions,
@@ -22,6 +23,7 @@ export {
   type FilesResponse,
   type Hit,
   type PageOptions,
+  type SearchLimits,
   type SearchOptions,
   type SearchResponse,
 } from "./types.js";

@@ -176,6 +176,25 @@ main();
 </details>
 
 <details>
+<summary>Account</summary>
+
+```ts
+import { Client } from "stealerlogs";
+
+async function main() {
+  const sl = new Client("MY_API_KEY");
+
+  const account = await sl.me();
+  console.log(account.planName, account.daysLeft);
+  console.log(account.limits.searchesRemaining);
+}
+
+main();
+```
+
+</details>
+
+<details>
 <summary>Custom fetch</summary>
 
 ```ts
